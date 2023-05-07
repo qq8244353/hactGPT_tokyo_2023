@@ -5,7 +5,7 @@
   sendButton.onclick = async ()=>{
     const input = messageInput.value;
     const data = {"topic": input}
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 6; i++) {
       console.log(data);
       const response = await fetch("/debate", {
       method: "POST",
@@ -29,6 +29,7 @@
       console.log(role, content);
       console.log(messageElement);
       console.log("hello");
+      window.scrollTo(0, document.body.scrollHeight);
     }
     // resultTextは結果の文字列
     const resultText = await fetch("/evaluate", {
@@ -42,6 +43,7 @@
 
     // resultContainerに結果を追加する
     resultContainer.appendChild(resultTextElement);
+    window.scrollTo(0, document.body.scrollHeight);
 }
 //   function sendMessage() {
 //     const message = messageInput.value;
