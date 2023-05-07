@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 5458), see www.w3.org">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<style type="text/css">
+    .conversation {
+      display: flex;
+      flex-direction: column;
+    }
+    .assistant,
+    .user {
+      border-radius: 15px;
+      padding: 10px;
+      margin: 5px;
+      max-width: 60%;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    .assistant {
+      align-self: flex-start;
+      background-color: lightblue;
+    }
+    .user {
+      align-self: flex-end;
+      background-color: lightgreen;
+    }
+    #input-container {
+      display: flex;
+      margin-top: 10px;
+    }
+    #message-input {
+      flex: 1;
+      margin-right: 10px;
+    }
+    #send-button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+</style>
+<title>Chat Simulation</title>
+</head>
+<body>
+<div id="input-container"><input type="text" id="message-input"
+placeholder=
+"&#227;&#352;&#233;&#161;&#338;&#227;&#8218;&#8217;&#229;&#8230;&#165;&#229;&#352;&#8250;&#227;&#8212;&#227;&#166;&#227;&#227;&nbsp;&#227;&#8226;&#227;&#8222;">
+<button id="send-button">Send</button></div>
+<div class="conversation" id="conversation"></div>
+  <script type="text/javascript" src="debate.js"></script>
+</body>
+</html>
