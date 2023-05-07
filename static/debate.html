@@ -49,15 +49,23 @@
       margin: 4px 2px;
       cursor: pointer;
     }
+    .resultContainer {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #F6F6F6;
+    }
 </style>
 <title>Chat Simulation</title>
 </head>
 <body>
-<div id="input-container"><input type="text" id="message-input"
-placeholder=
-"&#227;&#352;&#233;&#161;&#338;&#227;&#8218;&#8217;&#229;&#8230;&#165;&#229;&#352;&#8250;&#227;&#8212;&#227;&#166;&#227;&#227;&nbsp;&#227;&#8226;&#227;&#8222;">
-<button id="send-button">Send</button></div>
-<div class="conversation" id="conversation"></div>
-  <script type="text/javascript" src="debate.js"></script>
+  <div id="input-container">
+    <input type="text" id="message-input" placeholder="お題を入力してください">
+    <button id="send-button">Send</button>
+  </div>
+  <div class="theme" src="debate.js">
+    <div class="conversation" id="conversation"></div>
+    <div class="resultContainer" id="result-container"></div>
+    <script type="text/javascript" src="debate.js"></script>
+  </div>
 </body>
 </html>

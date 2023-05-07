@@ -1,20 +1,11 @@
-const chatData = [
-    { role: "assistant", content: "You are friendly chatbot." },
-    { role: "user", content: "Hi, my name is Isa" },
-    {
-      role: "assistant",
-      content: "Hi Isa! It's nice to meet you. Is there anything I can help you with today?",
-    },
-    { role: "user", content: "Yes, you can remind me, What is my name?" },
-  ];
-  
   const conversation = document.getElementById("conversation");
   const messageInput = document.getElementById("message-input");
   const sendButton = document.getElementById("send-button");
+  const resultContainer = document.getElementById("result-container");
   sendButton.onclick = async ()=>{
     const input = messageInput.value;
     const data = {"topic": input}
-    for (let i = 0; i <= 4; i++) {
+    for (let i = 0; i < 4; i++) {
       console.log(data);
       const response = await fetch("/debate", {
       method: "POST",
@@ -39,6 +30,18 @@ const chatData = [
       console.log(messageElement);
       console.log("hello");
     }
+    // resultTextは結果の文字列
+    const resultText = await fetch("/evaluate", {
+      method: "GET",
+      });
+    const content = await resultText.json();
+
+    // 結果の文字列を表示するための要素を作成し、テキストを設定する
+    const resultTextElement = document.createElement("p");
+    resultTextElement.textContent = content;
+
+    // resultContainerに結果を追加する
+    resultContainer.appendChild(resultTextElement);
 }
 //   function sendMessage() {
 //     const message = messageInput.value;

@@ -34,13 +34,13 @@ def generate_arguments(topic):
   if trials == 0: #初期状態
     prompt = """あなたは、ディベートのプロとして振る舞ってください。\n
               お題は「"""+str(topic)+"""」です。まずは、賛成側の立論を言ってください。\n
-              補足1: わかりやすく簡潔に口語で教えてください\n"""
+              補足1: わかりやすく簡潔に口語で3文以内で教えてください\n"""
   elif trials % 2 == 1: #反対の意見を述べる
     prompt = """反対側の立論を言ってください。賛成側の意見を必ず踏まえてください。\n
-                補足1: わかりやすく簡潔に口語で教えてください"""
+                補足1: わかりやすく簡潔に口語で3文以内で教えてください"""
   else: #賛成の意見を述べる
     prompt = """賛成側の立論を言ってください。反対側の意見を必ず踏まえてください。\n
-                補足1: わかりやすく簡潔に口語で教えてください"""
+                補足1: わかりやすく簡潔に口語で3文以内で教えてください"""
   messages.append({"role": "user", "content": prompt})
   html = get_completion_from_messages(messages)
   messages.append({"role": "assistant", "content": html})
@@ -89,7 +89,7 @@ async def debate(item: Item3):
   trials += 1
   return text
 
-@app.post("/evaluate")
+@app.get("/evaluate")
 async def debate():
   global trials
   text = ""
